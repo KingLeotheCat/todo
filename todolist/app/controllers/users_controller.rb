@@ -8,7 +8,9 @@ end
 
 #receive login form, find user, log that user in
 post '/login' do
+  @user = User.find_by(email: params[:email])
   
+  if @user.authenticate(params[:password])
 end
 #What routes for signup?
 
