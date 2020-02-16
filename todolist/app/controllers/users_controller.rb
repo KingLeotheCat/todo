@@ -6,6 +6,10 @@ get '/login' do
   erb :login
 end
 
+#receive login form, find user, log that user in
+post '/login' do
+  
+end
 #What routes for signup?
 
 get '/signup' do
