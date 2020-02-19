@@ -8,14 +8,29 @@ end
 
 #receive login form, find user, log that user in
 post '/login' do
-  @user = User.find_by(email: params[:email])
+  #Find the user
   
+  @user = User.find_by(email: params[:email])
+  #Authenticate the user
   if @user.authenticate(params[:password])
+    #log the user in
+    session[:user_id] = @user.id
+    #redirect to user's landing page
+    puts session
+    redirect "users/#{@user.id}"
+  else
+   #tell the user they entered invalid cred
+   #redirect to login page
+  end
 end
 #What routes for signup?
-
 get '/signup' do
 
 end
 
+#user SHOW routes
+
+get '/users/:id' do
+  "This will be the user show route"
+end
 end
