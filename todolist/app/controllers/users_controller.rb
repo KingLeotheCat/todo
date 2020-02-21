@@ -32,7 +32,8 @@ get '/signup' do
 end
 
 post '/users' do
-  
+  #here is where we will create a new user and persist the new
+  #user to the database 
 end
 
 #user SHOW routes
