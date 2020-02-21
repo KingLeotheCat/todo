@@ -23,9 +23,16 @@ post '/login' do
    #redirect to login page
   end
 end
-#What routes for signup?
-get '/signup' do
 
+#What routes for signup?
+#This route render's the signup form
+get '/signup' do
+  erb :signup
+
+end
+
+post '/users' do
+  
 end
 
 #user SHOW routes
