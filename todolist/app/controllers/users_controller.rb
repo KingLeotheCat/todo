@@ -38,19 +38,27 @@ post '/users' do
   if params[:name] != "" && params[:email] != ""  && params[:password] != ""
     #valid input
     @user = User.create(params)
+    session[:user_id] = @user.id
     #go to user's show page  
     redirect "users/#{@user.id}"
     
   else
-    puts "Missing Something"
+    redirect '/login'
     
   
-end
+  end
 end
 
 #user SHOW routes
 
 get '/users/:id' do
+  @user = User.find_by(id: params[:id])
+   
   erb :'/users/show'
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end
 end
