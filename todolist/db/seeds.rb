@@ -9,6 +9,6 @@ Task.create(content: "Today is Thursday", user_id: lenny.id)
 lenny.tasks.create(content: "Building a Sinatra app")
 
 
-nellys_entry = nelly.tasks.build(content: "Ahh bubushka!")
+nellys_entry = nelly.tasks.build(content: "bubushka!")
 nellys_entry.save
 

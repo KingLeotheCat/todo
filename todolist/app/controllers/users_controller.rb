@@ -34,11 +34,23 @@ end
 post '/users' do
   #here is where we will create a new user and persist the new
   #user to the database 
+  #I only want to persist a user that has a name, email, and password
+  if params[:name] != "" && params[:email] != ""  && params[:password] != ""
+    #valid input
+    @user = User.create(params)
+    #go to user's show page  
+    redirect "users/#{@user.id}"
+    
+  else
+    puts "Missing Something"
+    
+  
+end
 end
 
 #user SHOW routes
 
 get '/users/:id' do
-  "This will be the user show route"
+  erb :'/users/show'
 end
 end
