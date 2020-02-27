@@ -38,6 +38,34 @@ class TasksController < ApplicationController
     erb :'tasks/edit'
   end
 
+
+  patch '/tasks/:id' do
+    #find task
+    @task = Task.find(params[:id])
+    #modify the task
+    @task.update(content: params[:content])
+    #redirect to show page
+    redirect "/tasks/#{@task.id}"
+    
+  end
+  
+  
+  #---------------------------
+  
+  #helper method:
+  
+  #private
+  
+    # def set_task
+    
+    #   @task = Task.find(params[:id])   <- for cleaner code
+    # end
+  
+  #----------------------------
+  
+  
+  
 #index route for all tasks
+
 
 end
