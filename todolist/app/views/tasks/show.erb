@@ -1,1 +1,7 @@
-Show page for a task
+<p><%=@task.content %></p>
+
+Edit Link
+<a href="/tasks/<%= @task.id %>/edit">Edit Entry</a>
+
+Delete Link
+<a href="tasks/<%= @task.id %>/delete">Delete Entry</a>

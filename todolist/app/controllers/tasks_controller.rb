@@ -25,12 +25,17 @@ class TasksController < ApplicationController
     
   end
   
+
+
+  #show route for a task 
+  get '/tasks/:id' do
+    @task = Task.find(params[:id])
+     erb :'/tasks/show'
+  end
   
-
-
-#get tasks/new to render form to create new task
-
-#show route for a task entry
+  get '/tasks/:id/edit' do
+    erb :'tasks/edit'
+  end
 
 #index route for all tasks
 
