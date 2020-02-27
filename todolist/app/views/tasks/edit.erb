@@ -1,1 +1,7 @@
-Edit Form Goes Here
+<h2>Edit a to do entry</h2>
+
+<form class="" action="/tasks" method="post">
+  <label for="content">Content:</label>
+  <input type="text" name="content" value="<%= @task.content %>">
+  <input type="submit" name="" value="Create Entry">
+</form>
