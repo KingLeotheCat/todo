@@ -1,1 +1,8 @@
 INDEX FOR JOURNAL ENTRIES
+
+<% @tasks.each do |task| %>
+<h4><a href="/tasks/<%= task.id %>"><%= task.content %></a></h4>
+<p><%= task.created_at %></p>
+<p>By <%= task.user.name %></p>
+<br><br>
+<% end %>

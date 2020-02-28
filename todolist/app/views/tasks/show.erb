@@ -1,7 +1,12 @@
-<p><%=@task.content %></p>
+Show page for task
+
+<p><%= @task.content %></p>
 
 Edit Link
+<% if authorized_to_edit?(@task) %>
 <a href="/tasks/<%= @task.id %>/edit">Edit Entry</a>
 
 Delete Link
 <a href="tasks/<%= @task.id %>/delete">Delete Entry</a>
+
+<% end %>

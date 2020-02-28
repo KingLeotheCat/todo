@@ -1,6 +1,11 @@
 class TasksController < ApplicationController
   
   
+  get '/tasks' do
+    
+    @tasks = Task.all
+    erb :'tasks/index'
+  end
   
   #get tasks/new to render a form to create new task
   get '/tasks/new' do
@@ -14,7 +19,7 @@ class TasksController < ApplicationController
     
     #I want to create a new task and save it to DB
     #I only want to save the entry if it has some content
-    if !logged_in?
+    if authorized_to_edit?(@task)
       redirect '/'
     end
     
