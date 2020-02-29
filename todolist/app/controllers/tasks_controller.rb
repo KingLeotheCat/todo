@@ -82,7 +82,7 @@ class TasksController < ApplicationController
   
   
   delete '/tasks/:id' do
-    set_task
+    @task = Task.find(params[:id]) 
     if authorized_to_edit?(@task)
       @task.destroy
       redirect '/tasks'
@@ -97,12 +97,12 @@ class TasksController < ApplicationController
   
   #helper method:
   
-  private
+  # private
   
-    def set_task
+  #   def set_task
     
-      @task = Task.find(params[:id])   
-    end
+  #     @task = Task.find(params[:id])   
+  #   end
   
   #----------------------------
   
