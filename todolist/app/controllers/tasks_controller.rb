@@ -79,16 +79,30 @@ class TasksController < ApplicationController
     end
   end
   
+  
+  
+  delete '/tasks/:id' do
+    set_task
+    if authorized_to_edit?(@task)
+      @task.destroy
+      redirect '/tasks'
+    else
+      redirect '/tasks'
+     end
+  
+  end
+
+
   #---------------------------
   
   #helper method:
   
-  #private
+  private
   
-    # def set_task
+    def set_task
     
-    #   @task = Task.find(params[:id])   <- for cleaner code
-    # end
+      @task = Task.find(params[:id])   
+    end
   
   #----------------------------
   

@@ -2,11 +2,16 @@ Show page for task
 
 <p><%= @task.content %></p>
 
-Edit Link
+
 <% if authorized_to_edit?(@task) %>
+
 <a href="/tasks/<%= @task.id %>/edit">Edit Entry</a>
 
-Delete Link
-<a href="tasks/<%= @task.id %>/delete">Delete Entry</a>
+<a href="">Delete Entry</a>
+<form class="" action="tasks/<%= @task.id %>/delete" method="post">
+<input type="hidden" name="_method" value="DELETE">  
+<input type="submit" name="" value ="Delete this entry">
+  
+</form>
 
 <% end %>
