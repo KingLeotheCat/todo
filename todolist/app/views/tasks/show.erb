@@ -8,7 +8,7 @@
 <a href="/tasks/<%= @task.id %>/edit">Edit Entry</a>
 <br><br>
 
-<form class="" action="tasks/<%= @task.id %>/delete" method="post">
+<form class="" action="/tasks/<%= @task.id %>" method="post">
 <input type="hidden" name="_method" value="DELETE">  
 <input type="submit" name="" value ="Delete this entry">
   
