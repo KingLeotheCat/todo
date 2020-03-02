@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   
   get '/tasks' do
     
-    @tasks = Task.all
+    @tasks = current_user.tasks.all
     erb :'tasks/index'
   end
   
