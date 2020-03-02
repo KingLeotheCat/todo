@@ -19,9 +19,9 @@ class TasksController < ApplicationController
     
     #I want to create a new task and save it to DB
     #I only want to save the entry if it has some content
-    if authorized_to_edit?(@task)
-      redirect '/'
-    end
+    if logged_in?
+      # redirect '/'
+    # end
     
     if params[:content] !=""
       #Create a new entry
@@ -30,8 +30,13 @@ class TasksController < ApplicationController
     else
       redirect '/tasks/new'
     end
+    
+  else
+    redirect 'tasks/new'
+    
     #I also only want to create a task if a user is logged in
   end
+end
   
   
 
