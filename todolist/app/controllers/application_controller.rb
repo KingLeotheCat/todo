@@ -25,12 +25,12 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
   
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
+    def current_user
+      @current_user ||= User.find_by(id: session[:user_id])
+    end
   
-  def authorized_to_edit?(task)
-    task.user == current_user
-  end  
-end
+    def authorized_to_edit?(task)
+      task.user == current_user
+    end  
+  end
 end
