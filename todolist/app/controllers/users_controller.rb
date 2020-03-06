@@ -18,6 +18,8 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}"
     else
+      flash.alert="User not found"
+      redirect '/login'
      #tell the user they entered invalid cred
      #redirect to login page
     end
