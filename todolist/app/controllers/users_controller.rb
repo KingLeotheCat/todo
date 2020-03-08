@@ -15,10 +15,10 @@ class UsersController < ApplicationController
       #log the user in
       session[:user_id] = @user.id
       #redirect to user's landing page
-      puts session
+  
       redirect "users/#{@user.id}"
     else
-      flash.alert="User not found"
+   
       redirect '/login'
      #tell the user they entered invalid cred
      #redirect to login page

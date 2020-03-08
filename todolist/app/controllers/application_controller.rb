@@ -32,5 +32,11 @@ class ApplicationController < Sinatra::Base
     def authorized_to_edit?(task)
       task.user == current_user
     end  
+    
+    def not_logged_in?
+      if !current_user
+        redirect '/'
+      end  
+    end
   end
 end

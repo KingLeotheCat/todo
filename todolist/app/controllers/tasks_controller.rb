@@ -2,13 +2,14 @@ class TasksController < ApplicationController
   
   
   get '/tasks' do
-    
+    not_logged_in?
     @tasks = current_user.tasks.all
     erb :'tasks/index'
   end
   
   #get tasks/new to render a form to create new task
   get '/tasks/new' do
+    not_logged_in?
     erb :'/tasks/new'
   end
   
@@ -19,7 +20,7 @@ class TasksController < ApplicationController
     
     #I want to create a new task and save it to DB
     #I only want to save the entry if it has some content
-    if logged_in?
+    
       # redirect '/'
     # end
     
@@ -31,11 +32,6 @@ class TasksController < ApplicationController
       redirect '/tasks/new'
     end
     
-  else
-    redirect 'tasks/new'
-    
-    #I also only want to create a task if a user is logged in
-  end
 end
   
   
@@ -43,6 +39,7 @@ end
 
   #show route for a task 
   get '/tasks/:id' do
+    not_logged_in?
     @task = Task.find(params[:id])
     erb :'/tasks/show'
   end
@@ -51,24 +48,24 @@ end
   
   
   get '/tasks/:id/edit' do
+    not_logged_in?
     @task = Task.find(params[:id])
-    if logged_in?
+   
       if @task.user == current_user
         erb :'tasks/edit'
       else
         redirect "users/#{current_user.id}"
        end   
-    else
-      redirect '/'
-    end 
+  
   end  
      
 
 
   patch '/tasks/:id' do
+    not_logged_in?
     #find task
     @task = Task.find(params[:id])
-    if logged_in?
+  
       if @task.user==current_user
         #modify the task
         @task.update(content: params[:content])
@@ -79,14 +76,13 @@ end
       redirect "/tasks/#{current_user.id}"
     
       end
-    else
-      redirect '/'
-    end
+    
   end
   
   
   
   delete '/tasks/:id' do
+    not_logged_in?
     @task = Task.find(params[:id]) 
     if authorized_to_edit?(@task)
       @task.destroy
