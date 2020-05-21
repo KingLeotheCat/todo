@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     
     @user = User.find_by(email: params[:email])
     #Authenticate the user
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       #log the user in
       session[:user_id] = @user.id
       #redirect to user's landing page
