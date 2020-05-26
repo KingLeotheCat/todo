@@ -1,4 +1,4 @@
-This is a simple to-do list application to keep track of what you need to do!
+This is a simple team to-do list application to keep track of what you need to do!
 
 Instructions:
 
