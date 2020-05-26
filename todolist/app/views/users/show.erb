@@ -1,3 +1,17 @@
 <h2><%= @user.name %>'s Show page</h2>
 
 <h3><%= @user.email %></h3>
+
+<br><br>
+
+
+<% @user.tasks.each do |task| %>
+    <h4>
+
+    <a href="/tasks/<%= task.id %>"><%= task.content %></a>
+
+    </h4>
+
+        <br><br>
+
+ <% end %>

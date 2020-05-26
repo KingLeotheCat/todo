@@ -53,9 +53,14 @@ class UsersController < ApplicationController
   #user SHOW routes
   
   get '/users/:id' do
+    if not_logged_in?()
+      redirect '/'
+    else
+
     @user = User.find_by(id: params[:id])
      
     erb :'/users/show'
+    end
   end
   
   get '/logout' do
