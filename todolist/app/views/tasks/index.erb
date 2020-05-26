@@ -2,7 +2,9 @@
 
 <% @tasks.each do |task| %>
 <h4><a href="/tasks/<%= task.id %>"><%= task.content %></a></h4>
-<p><%= task.created_at %></p>
+<p>Created at<%= task.created_at %></p>
 
 <br><br>
+
+<p>by <%= task.user.name %></p>
 <% end %>

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   
   get '/tasks' do
     not_logged_in?
-    @tasks = current_user.tasks.all
+    @tasks = Task.all
     erb :'tasks/index'
   end
   
