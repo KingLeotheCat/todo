@@ -52,7 +52,7 @@ end
     @task = Task.find(params[:id])
    
       if @task.user == current_user
-        erb :'tasks/edit'
+        erb :'/tasks/edit'
       else
         redirect "users/#{current_user.id}"
        end   
