@@ -93,23 +93,4 @@ end
   
   end
 
-
-  #---------------------------
-  
-  #helper method:
-  
-  # private
-  
-  #   def set_task
-    
-  #     @task = Task.find(params[:id])   
-  #   end
-  
-  #----------------------------
-  
-  
-  
-#index route for all tasks
-
-
 end
